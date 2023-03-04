@@ -4,6 +4,8 @@
 
 #include "rh_hashmap/rh_hashmap.h"
 
+// TODO: maybe implement distance function/macro? ugly to inline calc each time
+
 typedef struct entry {
   const char* key;
   void* value;
