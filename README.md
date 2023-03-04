@@ -1,2 +1,3 @@
-# rh_hashmap
-An implementation of the robin hood hashing algorithm in C.
+# Robin Hood Hashmap
+
+An implementation of the robin hood hashmap algorithm in C.
