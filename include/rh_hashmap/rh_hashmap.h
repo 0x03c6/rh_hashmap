@@ -31,4 +31,10 @@ int hashmap_remove(rh_hashmap* map, const char* key);
 
 /* resizes the hashmap given a new capacity, does not return */
 void hashmap_resize(rh_hashmap* map, unsigned int capacity);
+
+/* return size of hashmap */
+unsigned int hashmap_size(rh_hashmap* map);
+
+/* return capacity of hashmap */
+unsigned int hashmap_capacity(rh_hashmap* map);
 #endif // RH_HASHMAP_H_

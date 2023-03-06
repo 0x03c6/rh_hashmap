@@ -52,8 +52,8 @@ int hashmap_find(rh_hashmap* map, const char* key) {
   unsigned int index = fnv1a32_hash(key) % map->capacity;
   int d = 0;
 
-  while (map->buffer[index].key) {
-    // check to see if first index is correct
+  while (map->buffer[index].key && d <= map->capacity) {
+    // check to see if index is correct
     if (strcmp(map->buffer[index].key, key) == 0)
       return index;
 
@@ -66,6 +66,7 @@ int hashmap_find(rh_hashmap* map, const char* key) {
       entry tmp = map->buffer[index];
       map->buffer[index] = map->buffer[(index + c) % map->capacity];
       map->buffer[(index + c) % map->capacity] = tmp;
+
       d = c;
     }
     index = (index + 1) % map->capacity;
@@ -167,4 +168,8 @@ void hashmap_resize(rh_hashmap* map, unsigned int capacity) {
   map->capacity = capacity;
   return;
 }
+
+unsigned int hashmap_size(rh_hashmap* map) { return map->size; }
+
+unsigned int hashmap_capacity(rh_hashmap* map) { return map->capacity; }
 
